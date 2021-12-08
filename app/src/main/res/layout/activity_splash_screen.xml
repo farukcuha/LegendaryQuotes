@@ -7,18 +7,6 @@
     tools:context=".ui.activity.SplashScreenActivity"
     android:background="@drawable/bg_splash">
 
-    <!--        <ImageView-->
-    <!--            android:id="@+id/iv_app_icon_foreground"-->
-    <!--            android:layout_width="200dp"-->
-    <!--            android:layout_height="200dp"-->
-    <!--            android:layout_gravity="center"-->
-    <!--            android:src="@drawable/icon_quote_app"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent"-->
-    <!--            tools:ignore="MissingConstraints" />-->
-
     <com.jaredrummler.android.widget.AnimatedSvgView
         android:id="@+id/animated_svg_view"
         android:layout_width="400dp"

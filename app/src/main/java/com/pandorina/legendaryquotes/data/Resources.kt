@@ -72,4 +72,19 @@ object Resources {
         R.drawable.image_background_sunset,
         R.drawable.image_background_utah,
     )
+
+    val backgroundListForWidget = listOf(
+        R.drawable.image_background_leafs,
+        R.drawable.image_background_sunset,
+        R.drawable.image_background_on_the_air,
+        R.drawable.image_background_metropole,
+        R.drawable.image_background_dark_forest
+    )
+
+    val quoteListForWidget = listOf(
+        quoteList[4],
+        quoteList[3],
+        quoteList[2],
+        quoteList[5]
+    )
 }

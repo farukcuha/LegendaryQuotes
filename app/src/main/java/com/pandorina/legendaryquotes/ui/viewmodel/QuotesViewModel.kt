@@ -26,5 +26,4 @@ class QuotesViewModel @Inject constructor(private val repository: Repository) : 
     fun deleteAll(){
         viewModelScope.launch { repository.deleteAll() }
     }
-
 }

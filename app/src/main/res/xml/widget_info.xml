@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/by_ahmet_faruk_cuha"
+    android:initialKeyguardLayout="@layout/widget_layout_quote"
+    android:initialLayout="@layout/widget_layout_quote"
+    android:minWidth="286.0dp"
+    android:minHeight="72.0dp"
+    android:minResizeWidth="146.0dp"
+    android:minResizeHeight="60.0dp"
+    android:previewImage="@drawable/icon_quote_app"
+    android:updatePeriodMillis="96000"
+    android:widgetCategory="home_screen" />
