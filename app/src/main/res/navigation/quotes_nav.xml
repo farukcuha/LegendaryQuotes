@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/quotes_nav"
+    app:startDestination="@id/nav_ScrollableQuoteFragment">
+
+    <fragment
+        android:id="@+id/nav_ScrollableQuoteFragment"
+        android:name="com.pandorina.legendaryquotes.ui.fragment.ScrollableQuoteFragment"
+        android:label="fragment_scrollable_quote"
+        tools:layout="@layout/fragment_scrollable_quote" >
+        <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            android:id="@+id/action_scrollableQuoteFragment_to_quoteListFragment"
+            app:destination="@id/nav_QuoteListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_QuoteListFragment"
+        android:name="com.pandorina.legendaryquotes.ui.fragment.QuoteListFragment"
+        android:label="fragment_quote_list"
+        tools:layout="@layout/fragment_quote_list" />
+</navigation>
