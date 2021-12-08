@@ -9,14 +9,14 @@ import androidx.core.content.res.ResourcesCompat
 import com.pandorina.legendaryquotes.R
 import com.pandorina.legendaryquotes.data.Resources
 import com.pandorina.legendaryquotes.ui.viewmodel.DataStoreViewModel
-import com.pandorina.legendaryquotes.ui.viewmodel.QuoteListViewModel
+import com.pandorina.legendaryquotes.ui.viewmodel.QuotesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val dataStoreViewModel: DataStoreViewModel by viewModels()
-    private val quotesViewModel: QuoteListViewModel by viewModels()
+    private val quotesViewModel: QuotesViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

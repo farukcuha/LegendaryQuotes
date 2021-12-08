@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.jaredrummler.android.widget.AnimatedSvgView
 import com.pandorina.legendaryquotes.R
 
 @SuppressLint("CustomSplashScreen")
@@ -21,10 +22,11 @@ class SplashScreenActivity : AppCompatActivity() {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(this)
             }
-        }, 3000)
+        }, 6000)
 
-        findViewById<ImageView>(R.id.iv_app_icon_foreground)
-            .startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in))
+        /*findViewById<ImageView>(R.id.iv_app_icon_foreground)
+            .startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in))*/
+        findViewById<AnimatedSvgView>(R.id.animated_svg_view).start()
         findViewById<TextView>(R.id.tv_signature)
             .startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_up))
 

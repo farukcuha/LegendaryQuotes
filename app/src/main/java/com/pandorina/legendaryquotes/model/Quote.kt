@@ -10,5 +10,6 @@ data class Quote(
     val text: String,
     val owner: String,
     @PrimaryKey
-    var id: Long
+    var id: Long,
+    val isFavorite: Boolean = false
 )

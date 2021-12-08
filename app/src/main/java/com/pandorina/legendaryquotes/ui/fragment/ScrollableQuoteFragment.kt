@@ -22,14 +22,14 @@ import com.pandorina.legendaryquotes.databinding.FragmentScrollableQuoteBinding
 import com.pandorina.legendaryquotes.model.Quote
 import com.pandorina.legendaryquotes.ui.adapter.ScrollableQuotesAdapter
 import com.pandorina.legendaryquotes.ui.viewmodel.DataStoreViewModel
-import com.pandorina.legendaryquotes.ui.viewmodel.QuoteListViewModel
+import com.pandorina.legendaryquotes.ui.viewmodel.QuotesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class ScrollableQuoteFragment :
     BaseFragment<FragmentScrollableQuoteBinding>(FragmentScrollableQuoteBinding::inflate) {
-    private val quotesViewModel: QuoteListViewModel by viewModels()
+    private val quotesViewModel: QuotesViewModel by viewModels()
     private val dataStoreViewModel: DataStoreViewModel by viewModels()
     var list = listOf<Quote>()
 
@@ -61,17 +61,12 @@ class ScrollableQuoteFragment :
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    fun displayPagePosition(position: Int, list: List<Quote>) {
-        binding.tvPagePosition.text = "${position + 1}/${list.size}"
-    }
-
     private fun initViewPager() {
         binding.viewPagerQuotes.apply {
             quotesViewModel.quoteList.observe(viewLifecycleOwner) {
                 list = it
                 adapter = ScrollableQuotesAdapter(list)
-                displayPagePosition(binding.viewPagerQuotes.currentItem, list)
+                checkViewPagerState(0)
             }
         }
 
@@ -82,28 +77,42 @@ class ScrollableQuoteFragment :
                 positionOffset: Float,
                 positionOffsetPixels: Int
             ) {
-                displayPagePosition(position, list)
-                if (list.isEmpty() || list.size == 1) {
-                    binding.lottieArrowDown.isVisible = false
-                    binding.lottieArrowUp.isVisible = false
-                } else {
-                    when (position) {
-                        list.size - 1 -> {
-                            binding.lottieArrowDown.isVisible = false
-                            binding.lottieArrowUp.isVisible = true
-                        }
-                        0 -> {
-                            binding.lottieArrowUp.isVisible = false
-                            binding.lottieArrowDown.isVisible = true
-                        }
-                        else -> {
-                            binding.lottieArrowDown.isVisible = true
-                            binding.lottieArrowUp.isVisible = true
-                        }
+                checkViewPagerState(position)
+            }
+        })
+    }
+
+    @SuppressLint("SetTextI18n")
+    fun checkViewPagerState(position: Int){
+        when(list.size){
+            0 -> {
+                binding.lottieArrowDown.isVisible = false
+                binding.lottieArrowUp.isVisible = false
+                binding.tvPagePosition.text = "0/0"
+            }
+            1 -> {
+                binding.lottieArrowDown.isVisible = false
+                binding.lottieArrowUp.isVisible = false
+                binding.tvPagePosition.text = "1/1"
+            }
+            else -> {
+                binding.tvPagePosition.text = "${position + 1}/${list.size}"
+                when (position) {
+                    list.size - 1 -> {
+                        binding.lottieArrowDown.isVisible = false
+                        binding.lottieArrowUp.isVisible = true
+                    }
+                    0 -> {
+                        binding.lottieArrowUp.isVisible = false
+                        binding.lottieArrowDown.isVisible = true
+                    }
+                    else -> {
+                        binding.lottieArrowDown.isVisible = true
+                        binding.lottieArrowUp.isVisible = true
                     }
                 }
             }
-        })
+        }
     }
 
     private fun setActionBarConfiguration() {
@@ -138,7 +147,7 @@ class ScrollableQuoteFragment :
     private fun startImageChangingButtonAnim() {
         val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.2f)
         val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.2f)
-        val anim = ObjectAnimator.ofPropertyValuesHolder(binding.ivChangeBg, scaleX, scaleY)
+        val anim = ObjectAnimator.ofPropertyValuesHolder(binding.cvChangeBgRoot, scaleX, scaleY)
         anim.repeatCount = ValueAnimator.INFINITE
         anim.repeatMode = ValueAnimator.REVERSE
         anim.duration = 1000

@@ -12,6 +12,12 @@ interface QuoteDao {
     @Delete
     suspend fun deleteQuote(quote: Quote)
 
-    @Query("SELECT * FROM quote_table ORDER BY id DESC")
+    @Query("SELECT * FROM QUOTE_TABLE ORDER BY id DESC")
     fun getQuotes(): Flow<List<Quote>>
+
+    @Query("DELETE FROM QUOTE_TABLE")
+    suspend fun deleteALL()
+
+    @Query("SELECT * FROM QUOTE_TABLE WHERE isFavorite = '1' ORDER BY id DESC")
+    fun getFavoriteQuotes(): Flow<List<Quote>>
 }

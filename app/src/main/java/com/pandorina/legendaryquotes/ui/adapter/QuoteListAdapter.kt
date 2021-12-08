@@ -2,15 +2,22 @@ package com.pandorina.legendaryquotes.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.util.Util
+import com.pandorina.legendaryquotes.R
 import com.pandorina.legendaryquotes.databinding.ItemQuoteBinding
 import com.pandorina.legendaryquotes.model.Quote
+import com.pandorina.legendaryquotes.util.QuoteComparator
 
 class QuoteListAdapter(
     private val editQuote: (String, String, Long) -> Unit,
-    private val deleteQuote: (Quote) -> Unit
+    private val deleteQuote: (Quote) -> Unit,
+    private val addToFavorite: (Quote) -> Unit,
+    private val removeFromFavorite: (Quote) -> Unit
 ) :
     ListAdapter<Quote, QuoteListAdapter.QuoteListHolder>(QuoteComparator) {
 
@@ -41,15 +48,18 @@ class QuoteListAdapter(
                 item.id
             )
         }
-    }
 
-    object QuoteComparator : DiffUtil.ItemCallback<Quote>() {
-        override fun areItemsTheSame(oldItem: Quote, newItem: Quote): Boolean {
-            return oldItem.id == newItem.id
-        }
+        holder.binding.ibFavorite.setImageDrawable(ResourcesCompat.getDrawable(
+                holder.itemView.context.resources,
+                if (item.isFavorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border,null)
+        )
 
-        override fun areContentsTheSame(oldItem: Quote, newItem: Quote): Boolean {
-            return oldItem == newItem
+        holder.binding.ibFavorite.setOnClickListener {
+            if (item.isFavorite){
+                addToFavorite.invoke(Quote(item.text, item.owner, item.id, false))
+            } else {
+                removeFromFavorite.invoke(Quote(item.text, item.owner, item.id, true))
+            }
         }
     }
 }

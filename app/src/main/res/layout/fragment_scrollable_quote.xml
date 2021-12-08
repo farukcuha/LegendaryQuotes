@@ -55,16 +55,22 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_change_bg"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_change_bg_root"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:src="@drawable/image_background_leafs"
-        app:civ_border_color="@color/color_6"
-        app:civ_border_width="2dp"
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:elevation="15dp">
+
+        <ImageView
+            android:id="@+id/iv_change_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,8 +11,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class QuoteListViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
+class QuotesViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
     val quoteList = liveData { repository.getQuotes().collectLatest { emit(it) } }
+    val favoriteQuoteList = liveData { repository.getFavoriteQuotes().collectLatest { emit(it) } }
 
     fun insertQuote(quote: Quote) {
         viewModelScope.launch { repository.insertQuote(quote) }
@@ -20,6 +21,10 @@ class QuoteListViewModel @Inject constructor(private val repository: Repository)
 
     fun deleteQuote(quote: Quote) {
         viewModelScope.launch { repository.deleteQuote(quote) }
+    }
+
+    fun deleteAll(){
+        viewModelScope.launch { repository.deleteAll() }
     }
 
 }

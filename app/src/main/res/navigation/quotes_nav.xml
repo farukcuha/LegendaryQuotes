@@ -23,5 +23,18 @@
         android:id="@+id/nav_QuoteListFragment"
         android:name="com.pandorina.legendaryquotes.ui.fragment.QuoteListFragment"
         android:label="fragment_quote_list"
-        tools:layout="@layout/fragment_quote_list" />
+        tools:layout="@layout/fragment_quote_list">
+        <action
+            android:id="@+id/action_nav_QuoteListFragment_to_favoriteQuotesFragment"
+            app:destination="@id/favoriteQuotesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteQuotesFragment"
+        android:name="com.pandorina.legendaryquotes.ui.fragment.FavoriteQuotesFragment"
+        android:label="fragment_favorite_quotes"
+        tools:layout="@layout/fragment_favorite_quotes" />
 </navigation>

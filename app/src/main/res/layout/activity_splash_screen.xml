@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,16 +7,36 @@
     tools:context=".ui.activity.SplashScreenActivity"
     android:background="@drawable/bg_splash">
 
-    <ImageView
-        android:id="@+id/iv_app_icon_foreground"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+    <!--        <ImageView-->
+    <!--            android:id="@+id/iv_app_icon_foreground"-->
+    <!--            android:layout_width="200dp"-->
+    <!--            android:layout_height="200dp"-->
+    <!--            android:layout_gravity="center"-->
+    <!--            android:src="@drawable/icon_quote_app"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            tools:ignore="MissingConstraints" />-->
+
+    <com.jaredrummler.android.widget.AnimatedSvgView
+        android:id="@+id/animated_svg_view"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="center"
-        android:src="@drawable/icon_quote_app"
+        android:layout_marginStart="56dp"
+        app:animatedSvgFillColors="@array/splash_colors"
+        app:animatedSvgFillStart="3000"
+        app:animatedSvgFillTime="1000"
+        app:animatedSvgGlyphStrings="@array/splash_strings"
+        app:animatedSvgImageSizeX="500"
+        app:animatedSvgImageSizeY="375"
+        app:animatedSvgTraceTime="3000"
+        app:animatedSvgTraceTimePerGlyph="1000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.665"
         tools:ignore="MissingConstraints" />
 
     <TextView

@@ -2,6 +2,7 @@ package com.pandorina.legendaryquotes.data
 
 import android.content.Context
 import android.util.Log
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.intPreferencesKey
@@ -23,7 +24,11 @@ class Repository @Inject constructor(
 
     suspend fun deleteQuote(quote: Quote) = dao.deleteQuote(quote)
 
+    suspend fun deleteAll() = dao.deleteALL()
+
     fun getQuotes() = dao.getQuotes()
+
+    fun getFavoriteQuotes() = dao.getFavoriteQuotes()
 
     private object PreferencesKeys {
         val IMAGE_ID = intPreferencesKey("image_id")
