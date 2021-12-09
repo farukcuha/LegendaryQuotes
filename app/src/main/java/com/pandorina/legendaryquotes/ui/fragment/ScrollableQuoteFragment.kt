@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -35,10 +36,11 @@ class ScrollableQuoteFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setActionBarConfiguration()
-        startImageChangingButtonAnim()
         initViewPager()
         observeBackgroundImage()
-        onClickImageChangeButton()
+
+        startImageChangingButtonAnim(1.1f, binding.ivChangeBg)
+        startImageChangingButtonAnim(1.1f, binding.bgChangeImage)
 
         binding.lottieArrowDown.setOnClickListener { swipeViewPager(false) }
         binding.lottieArrowUp.setOnClickListener { swipeViewPager(true) }
@@ -138,10 +140,10 @@ class ScrollableQuoteFragment :
         return true
     }
 
-    private fun startImageChangingButtonAnim() {
-        val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.2f)
-        val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.2f)
-        val anim = ObjectAnimator.ofPropertyValuesHolder(binding.cvChangeBgRoot, scaleX, scaleY)
+    private fun startImageChangingButtonAnim(animValue: Float, view: View) {
+        val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, animValue)
+        val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, animValue)
+        val anim = ObjectAnimator.ofPropertyValuesHolder(view, scaleX, scaleY)
         anim.repeatCount = ValueAnimator.INFINITE
         anim.repeatMode = ValueAnimator.REVERSE
         anim.duration = 1000

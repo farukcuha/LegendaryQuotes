@@ -59,7 +59,7 @@ object Resources {
             true
         ),
         Quote(
-            "Dear Jedidroid; There is an awesome gift for you in the favorite fragment.",
+            "Dear jedidroid;\nThere is an awesome gift for you in the favorite fragment.",
             "Ahmet Faruk Çuha",
             11,
             true
@@ -79,7 +79,7 @@ object Resources {
         R.drawable.image_background_ocean,
         R.drawable.image_background_on_the_air,
         R.drawable.image_background_sunset,
-        R.drawable.image_background_utah,
+        R.drawable.image_background_utah
     )
 
     val backgroundListForWidget = listOf(
