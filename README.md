@@ -21,5 +21,7 @@
 - <a href="https://developer.android.com/guide/navigation">Navigation</a> -> to pass between fragments.
 - <a href="https://github.com/airbnb/lottie-android">Lottie</a> -> to load animations to get better ui.
 
+## Architecture
+<img src="https://developer.android.com/topic/libraries/architecture/images/final-architecture.png" alt="1" width="800px">
 
 <pre><code>Copyright 2021 Ahmet Faruk Çuha</code></pre>
