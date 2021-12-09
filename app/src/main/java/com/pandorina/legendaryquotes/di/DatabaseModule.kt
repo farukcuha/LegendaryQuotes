@@ -2,8 +2,8 @@ package com.pandorina.legendaryquotes.di
 
 import android.content.Context
 import androidx.room.Room
-import com.pandorina.legendaryquotes.data.QuoteDao
-import com.pandorina.legendaryquotes.data.QuoteDatabase
+import com.pandorina.legendaryquotes.data.dao.QuoteDao
+import com.pandorina.legendaryquotes.data.database.QuoteDatabase
 import com.pandorina.legendaryquotes.data.Repository
 import dagger.Module
 import dagger.Provides

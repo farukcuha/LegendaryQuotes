@@ -7,10 +7,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.pandorina.legendaryquotes.databinding.ItemQuoteBinding
 import com.pandorina.legendaryquotes.model.Quote
-import com.pandorina.legendaryquotes.util.QuoteComparator
+import com.pandorina.legendaryquotes.util.Util
 
-class FavoriteQuotesAdapter: ListAdapter<Quote, FavoriteQuotesAdapter.FavoriteQuoteListHolder>(QuoteComparator) {
-    class FavoriteQuoteListHolder(private val binding: ItemQuoteBinding) : RecyclerView.ViewHolder(binding.root) {
+class FavoriteQuotesAdapter :
+    ListAdapter<Quote, FavoriteQuotesAdapter.FavoriteQuoteListHolder>(Util.QuoteComparator) {
+    class FavoriteQuoteListHolder(private val binding: ItemQuoteBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Quote) {
             binding.apply {
                 tvQuote.text = item.text

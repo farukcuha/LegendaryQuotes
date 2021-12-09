@@ -1,4 +1,4 @@
-package com.pandorina.legendaryquotes.data
+package com.pandorina.legendaryquotes.data.dao
 
 import androidx.room.*
 import com.pandorina.legendaryquotes.model.Quote

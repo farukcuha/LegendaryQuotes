@@ -4,13 +4,11 @@ import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -23,6 +21,7 @@ import com.pandorina.legendaryquotes.model.Quote
 import com.pandorina.legendaryquotes.ui.adapter.ScrollableQuotesAdapter
 import com.pandorina.legendaryquotes.ui.viewmodel.DataStoreViewModel
 import com.pandorina.legendaryquotes.ui.viewmodel.QuotesViewModel
+import com.pandorina.legendaryquotes.util.Util.configureActionBar
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -31,11 +30,10 @@ class ScrollableQuoteFragment :
     BaseFragment<FragmentScrollableQuoteBinding>(FragmentScrollableQuoteBinding::inflate) {
     private val quotesViewModel: QuotesViewModel by viewModels()
     private val dataStoreViewModel: DataStoreViewModel by viewModels()
-    var list = listOf<Quote>()
+    private var list = listOf<Quote>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setActionBarConfiguration()
         startImageChangingButtonAnim()
         initViewPager()
@@ -44,11 +42,17 @@ class ScrollableQuoteFragment :
 
         binding.lottieArrowDown.setOnClickListener { swipeViewPager(false) }
         binding.lottieArrowUp.setOnClickListener { swipeViewPager(true) }
+        binding.ivChangeBg.setOnClickListener { onClickImageChangeButton() }
     }
 
     private fun onClickImageChangeButton() {
-        binding.ivChangeBg.setOnClickListener {
-            dataStoreViewModel.changeBackgroundImage(Resources.backgroundList.random())
+        val randomBackgroundDrawable = Resources.backgroundList.random()
+        dataStoreViewModel.getBackgroundImage.value?.let {
+            if (it == randomBackgroundDrawable) {
+                onClickImageChangeButton()
+            } else {
+                dataStoreViewModel.changeBackgroundImage(randomBackgroundDrawable)
+            }
         }
     }
 
@@ -88,12 +92,12 @@ class ScrollableQuoteFragment :
             0 -> {
                 binding.lottieArrowDown.isVisible = false
                 binding.lottieArrowUp.isVisible = false
-                binding.tvPagePosition.text = "0/0"
+                binding.tvPagePosition.text = getString(R.string.page_0_0)
             }
             1 -> {
                 binding.lottieArrowDown.isVisible = false
                 binding.lottieArrowUp.isVisible = false
-                binding.tvPagePosition.text = "1/1"
+                binding.tvPagePosition.text = getString(R.string.page_1_1)
             }
             else -> {
                 binding.tvPagePosition.text = "${position + 1}/${list.size}"
@@ -116,11 +120,11 @@ class ScrollableQuoteFragment :
     }
 
     private fun setActionBarConfiguration() {
-        setHasOptionsMenu(true)
-        (activity as AppCompatActivity).supportActionBar?.apply {
-            title = getString(R.string.legendary_quotes)
-            setDisplayHomeAsUpEnabled(false)
-        }
+        activity?.configureActionBar(
+            this,
+            getString(R.string.legendary_quotes),
+            setHasOptionsMenu = true
+        )
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -129,16 +133,6 @@ class ScrollableQuoteFragment :
                 val action =
                     ScrollableQuoteFragmentDirections.actionScrollableQuoteFragmentToQuoteListFragment()
                 findNavController().navigate(action)
-            }
-            R.id.action_share -> {
-                val shareIntent = Intent(Intent.ACTION_SEND)
-                shareIntent.type = "text/plain"
-                val sharingQuoteItem = list[binding.viewPagerQuotes.currentItem]
-                shareIntent.putExtra(
-                    Intent.EXTRA_TEXT,
-                    "${sharingQuoteItem.text} \n - ${sharingQuoteItem.owner}"
-                )
-                startActivity(shareIntent)
             }
         }
         return true

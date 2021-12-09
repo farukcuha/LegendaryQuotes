@@ -10,6 +10,9 @@
     <string name="clear">Clear</string>
     <string name="show_favorites">Show Favorites</string>
     <string name="favorites">Favorites</string>
+    <string name="page_0_0">0/0</string>
+    <string name="page_1_1">1/1</string>
+    <string name="right_slash">/</string>
 
     <string-array name="splash_strings">
         <item>M27.45,42.71L2.67,42.71L2.67,0.71L11.81,0.71L11.81,35.27L27.45,35.27Z</item>

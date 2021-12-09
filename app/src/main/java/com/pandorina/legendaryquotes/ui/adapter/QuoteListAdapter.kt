@@ -3,24 +3,20 @@ package com.pandorina.legendaryquotes.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.util.Util
 import com.pandorina.legendaryquotes.R
 import com.pandorina.legendaryquotes.databinding.ItemQuoteBinding
 import com.pandorina.legendaryquotes.model.Quote
-import com.pandorina.legendaryquotes.util.QuoteComparator
+import com.pandorina.legendaryquotes.util.Util
 
 class QuoteListAdapter(
     private val editQuote: (String, String, Long) -> Unit,
     private val deleteQuote: (Quote) -> Unit,
-    private val addToFavorite: (Quote) -> Unit,
-    private val removeFromFavorite: (Quote) -> Unit
+    private val setFavorite: (Quote) -> Unit
 ) :
-    ListAdapter<Quote, QuoteListAdapter.QuoteListHolder>(QuoteComparator) {
-
+    ListAdapter<Quote, QuoteListAdapter.QuoteListHolder>(Util.QuoteComparator) {
     class QuoteListHolder(val binding: ItemQuoteBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Quote) {
             binding.tvQuote.text = item.text
@@ -56,9 +52,9 @@ class QuoteListAdapter(
 
         holder.binding.ibFavorite.setOnClickListener {
             if (item.isFavorite){
-                addToFavorite.invoke(Quote(item.text, item.owner, item.id, false))
+                setFavorite.invoke(Quote(item.text, item.owner, item.id, false))
             } else {
-                removeFromFavorite.invoke(Quote(item.text, item.owner, item.id, true))
+                setFavorite.invoke(Quote(item.text, item.owner, item.id, true))
             }
         }
     }

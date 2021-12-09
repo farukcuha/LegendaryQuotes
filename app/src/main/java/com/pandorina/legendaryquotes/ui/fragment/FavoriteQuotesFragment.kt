@@ -9,6 +9,7 @@ import com.pandorina.legendaryquotes.R
 import com.pandorina.legendaryquotes.databinding.FragmentFavoriteQuotesBinding
 import com.pandorina.legendaryquotes.ui.adapter.FavoriteQuotesAdapter
 import com.pandorina.legendaryquotes.ui.viewmodel.QuotesViewModel
+import com.pandorina.legendaryquotes.util.Util.configureActionBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,10 +19,9 @@ class FavoriteQuotesFragment : BaseFragment<FragmentFavoriteQuotesBinding>(Fragm
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as AppCompatActivity).supportActionBar?.apply {
-            title = getString(R.string.favorites)
-            setDisplayHomeAsUpEnabled(true)
-        }
+        activity?.configureActionBar(this,
+            getString(R.string.favorites),
+            setDisplayBackButton = true)
 
         binding.root.apply {
             setHasFixedSize(true)
@@ -33,5 +33,4 @@ class FavoriteQuotesFragment : BaseFragment<FragmentFavoriteQuotesBinding>(Fragm
             favoriteQuotesAdapter.submitList(it)
         }
     }
-
 }

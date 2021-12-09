@@ -22,14 +22,10 @@ class SplashScreenActivity : AppCompatActivity() {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(this)
             }
-        }, 6000)
+        }, 5000)
 
-        /*findViewById<ImageView>(R.id.iv_app_icon_foreground)
-            .startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in))*/
         findViewById<AnimatedSvgView>(R.id.animated_svg_view).start()
         findViewById<TextView>(R.id.tv_signature)
             .startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_up))
-
-
     }
 }

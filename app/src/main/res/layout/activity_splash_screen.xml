@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.SplashScreenActivity"
-    android:background="@drawable/bg_splash">
+    android:background="@drawable/bg_splash"
+    tools:context=".ui.activity.SplashScreenActivity">
 
     <com.jaredrummler.android.widget.AnimatedSvgView
         android:id="@+id/animated_svg_view"
@@ -18,6 +18,8 @@
         app:animatedSvgFillTime="1000"
         app:animatedSvgGlyphStrings="@array/splash_strings"
         app:animatedSvgImageSizeX="500"
+        app:animatedSvgTraceColors="@array/splash_colors"
+        app:animatedSvgTraceResidueColors="@array/splash_colors"
         app:animatedSvgImageSizeY="375"
         app:animatedSvgTraceTime="3000"
         app:animatedSvgTraceTimePerGlyph="1000"
