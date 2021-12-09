@@ -4,7 +4,6 @@
 
 ### LegendaryQuotes is an android application that allows you to save your favorite quotes. You can edit, delete or add to favorite your quotes. Also wonderful images that you can change with one button are located in background of quotes.
 
-
 ## Screenshots
 <img src="screenshots/1.png" alt="1" width="250px"> <img src="screenshots/2.png" alt="2" width="250px">
 <img src="screenshots/3.png" alt="3" width="250px">
