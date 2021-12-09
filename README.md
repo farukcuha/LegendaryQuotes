@@ -1,4 +1,5 @@
 # LegendaryQuotes
+<img src="app_icon.png" alt="2" width="250px">
 ### LegendaryQuotes is an android application that allows you to save your favorite quotes. You can edit, delete or add to favorite your quotes. Also wonderful images that you can change with one button are located in background of quotes.
 
 <img src="https://img.shields.io/badge/language-kotlin-blueviolet?style=plastic&logo=kotlin" alt="language"> <img src="https://img.shields.io/badge/api-21+-red?style=plastic&logo=android" alt="language"> <img src="https://img.shields.io/badge/architecture-mvvm-yellow?style=plastic" alt="language">
