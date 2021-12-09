@@ -1,4 +1,3 @@
-<img src="https://img.shields.io/badge/language-kotlin-blueviolet?style=plastic&logo=kotlin" alt="language"> <img src="https://img.shields.io/badge/api-21+-red?style=plastic&logo=android" alt="language"> <img src="https://img.shields.io/badge/architecture-mvvm-yellow?style=plastic" alt="language">
 # LegendaryQuotes
 <img src="app_icon.png" alt="2" width="200px">
 
