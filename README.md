@@ -5,7 +5,7 @@
 
 ## Libraries
 - <a href="https://developer.android.com/training/data-storage/room">Room</a> -> to save users favorite movies to local database.
-- <a href="https://developer.android.com/topic/libraries/architecture/datastore">Room</a> -> to save users preferences.
+- <a href="https://developer.android.com/topic/libraries/architecture/datastore">Datastore</a> -> to save users preferences.
 - <a href="https://developer.android.com/topic/libraries/architecture/viewmodel">ViewModel</a> -> to hold live-data and flow datas.
 - <a href="https://developer.android.com/topic/libraries/architecture/livedata">LiveData</a> -> to hold observable data.
 - <a href="https://developer.android.com/kotlin/flow">Flow</a> -> to receive live updates from local and remote.
