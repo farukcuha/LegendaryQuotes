@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.GiftForKekodActivity">
+
+    <com.jaredrummler.android.widget.AnimatedSvgView
+        android:id="@+id/animated_svg_view_for_kekod"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        app:animatedSvgFillColors="@array/kekod_colors"
+        app:animatedSvgFillStart="3000"
+        app:animatedSvgFillTime="1000"
+        app:animatedSvgGlyphStrings="@array/kekod_strings"
+        app:animatedSvgImageSizeX="171"
+        app:animatedSvgImageSizeY="171"
+        app:animatedSvgTraceColors="@array/kekod_colors"
+        app:animatedSvgTraceResidueColors="@array/kekod_colors"
+        app:animatedSvgTraceTime="4000"
+        app:animatedSvgTraceTimePerGlyph="2000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</FrameLayout>

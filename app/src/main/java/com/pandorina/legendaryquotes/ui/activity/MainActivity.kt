@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.pandorina.legendaryquotes.R
 import com.pandorina.legendaryquotes.data.Resources
+import com.pandorina.legendaryquotes.databinding.ActivityMainBinding
 import com.pandorina.legendaryquotes.ui.viewmodel.DataStoreViewModel
 import com.pandorina.legendaryquotes.ui.viewmodel.QuotesViewModel
 import com.pandorina.legendaryquotes.util.Util
@@ -19,14 +20,16 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val dataStoreViewModel: DataStoreViewModel by viewModels()
     private val quotesViewModel: QuotesViewModel by viewModels()
+
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         dataStoreViewModel.getBackgroundImage.observe(this) {
-            findViewById<FrameLayout>(R.id.root_parent_main_activity)
+            binding.rootParentMainActivity
                 .background = ResourcesCompat.getDrawable(resources, it, null)
-
         }
         createDefaultQuotes()
     }
@@ -45,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.action_share -> {
                 val screenShotUri = Util.saveMediaToStorage(Util
-                    .getScreenShotFromView(findViewById<FrameLayout>(R.id.root_parent_main_activity)), this)
+                    .getScreenShotFromView(binding.rootParentMainActivity), this)
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "image/jpeg"
                 shareIntent.putExtra(Intent.EXTRA_STREAM, screenShotUri)

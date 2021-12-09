@@ -9,24 +9,23 @@
 
     <com.jaredrummler.android.widget.AnimatedSvgView
         android:id="@+id/animated_svg_view"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_gravity="center"
-        android:layout_marginStart="56dp"
         app:animatedSvgFillColors="@array/splash_colors"
         app:animatedSvgFillStart="3000"
         app:animatedSvgFillTime="1000"
         app:animatedSvgGlyphStrings="@array/splash_strings"
-        app:animatedSvgImageSizeX="500"
+        app:animatedSvgImageSizeX="344"
+        app:animatedSvgImageSizeY="122"
         app:animatedSvgTraceColors="@array/splash_colors"
         app:animatedSvgTraceResidueColors="@array/splash_colors"
-        app:animatedSvgImageSizeY="375"
         app:animatedSvgTraceTime="3000"
         app:animatedSvgTraceTimePerGlyph="1000"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665"
         tools:ignore="MissingConstraints" />
 
     <TextView
