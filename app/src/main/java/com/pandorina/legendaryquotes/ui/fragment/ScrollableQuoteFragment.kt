@@ -40,7 +40,7 @@ class ScrollableQuoteFragment :
         observeBackgroundImage()
 
         startImageChangingButtonAnim(1.1f, binding.ivChangeBg)
-        startImageChangingButtonAnim(1.1f, binding.bgChangeImage)
+        startImageChangingButtonAnim(1.05f, binding.bgChangeImage)
 
         binding.lottieArrowDown.setOnClickListener { swipeViewPager(false) }
         binding.lottieArrowUp.setOnClickListener { swipeViewPager(true) }

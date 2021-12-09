@@ -15,8 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Two things are infinite: the universe and human stupidity; and I'm not sure about the universe."
-        android:textSize="19sp"
-        android:textStyle="bold"
+        android:textSize="21sp"
+        android:fontFamily="@font/font_semi_bold"
         android:textColor="@color/white" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +31,7 @@
             tools:text="Albert Einstein"
             android:textSize="16sp"
             android:textColor="@color/white"
+            android:fontFamily="@font/font_regular"
             android:textAlignment="textEnd"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

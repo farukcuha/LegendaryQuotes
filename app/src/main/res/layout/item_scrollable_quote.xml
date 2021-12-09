@@ -13,9 +13,9 @@
         android:layout_marginHorizontal="16dp"
         tools:text="Two things are infinite: the universe and human stupidity; and I'm not sure about the universe."
         android:textAlignment="textStart"
+        android:fontFamily="@font/font_bold"
         android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:textSize="27sp"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -24,11 +24,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/font_regular"
         android:textStyle="italic"
         tools:text="Albert Einstein"
         android:textAlignment="textStart"
         android:textColor="@color/white"
         android:textSize="18sp"
         tools:ignore="MissingConstraints" />
-
 </LinearLayout>
