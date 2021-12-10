@@ -26,10 +26,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="5"
+            android:fontFamily="@font/font_bold"
             android:textAlignment="textStart"
             android:textColor="@color/white"
             android:textSize="22sp"
-            android:textStyle="bold"
             tools:text="Two things are infinite: the universe and human stupidity; and I'm not sure about the universe." />
 
         <LinearLayout
@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
                 android:ellipsize="end"
+                android:fontFamily="@font/font_regular"
                 android:maxLines="1"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
