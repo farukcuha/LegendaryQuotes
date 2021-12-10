@@ -27,7 +27,7 @@ object Resources {
             4
         ),
         Quote(
-            "Everything negative – pressure, challenges is all an opportunity for me to rise.",
+            "Everything negative pressure, challenges is all an opportunity for me to rise.",
             "Kobe Bryant",
             5,
             true
@@ -48,8 +48,8 @@ object Resources {
             8
         ),
         Quote(
-            "Don\'t forget why you were born, son!",
-            "Adem Çuha",
+            "Somethings are beautiful in black-white except Beşiktaş.",
+            "Anonymous",
             9
         ),
         Quote(
@@ -60,7 +60,7 @@ object Resources {
         ),
         Quote(
             "Dear jedidroid;\nThere is an awesome gift for you in the favorite fragment.",
-            "Ahmet Faruk Çuha",
+            "The Mandalorian",
             11,
             true
         )
