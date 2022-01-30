@@ -23,7 +23,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(this)
             }
-        }, 6000)
+        }, 4000)
 
         binding.animatedSvgView.start()
         binding.tvSignature.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_up))

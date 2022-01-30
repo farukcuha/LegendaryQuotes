@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:description="@string/by_ahmet_faruk_cuha"
+    android:description="@string/by_pandorina"
     android:initialKeyguardLayout="@layout/widget_layout_quote"
     android:initialLayout="@layout/widget_layout_quote"
     android:minWidth="286.0dp"
